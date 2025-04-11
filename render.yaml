@@ -1,6 +1,9 @@
 services:
   - type: web
-    name: django-sample
+    name: my-django-app
     env: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn mysite.wsgi:application --bind 0.0.0.0:$PORT
+    startCommand: "gunicorn jobcat_project.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: jobcat_project.settings
